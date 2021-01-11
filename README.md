@@ -27,6 +27,7 @@ Missing Features:
 - https://en.wikipedia.org/wiki/Portable_Game_Notation
 - reset feature
 - chess engine
+- lacking ANSI C compability due to glm namespaces
 
 Previous Versions:
 - none!
