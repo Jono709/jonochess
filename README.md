@@ -19,6 +19,8 @@ Mentions:
 - https://github.com/ornicar/lila    - lichess.org: the forever free, adless and open source chess server
 - https://learnopengl.com/           - opengl tutorials C/C++
 - https://github.com/blender/blender - Open source 3D creation. Free to use for any purpose, forever.
+- https://github.com/GNOME/gimp      - The GNU Image Manipulation Program
+- https://commons.wikimedia.org/wiki/Category:SVG_chess_pieces
 
 Missing Features:
 - https://en.wikipedia.org/wiki/Time_control
