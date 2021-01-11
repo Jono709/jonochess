@@ -6,7 +6,7 @@ Latest Changelog: 0.2.1b (11 Jan 2021)
 - opengl rendering
 - full set of gamerules
 - promoting with keyboard ( q = queen, r = rook, n = knight, b = bishop )
-- Flip the board with keyboard "f"
+- flip the board with keyboard "f"
 - drag & drop style movement
 
 Dependancies:
