@@ -20,6 +20,7 @@ Mentions:
 - https://learnopengl.com/           - opengl tutorials C/C++
 - https://github.com/blender/blender - Open source 3D creation. Free to use for any purpose, forever.
 - https://github.com/GNOME/gimp      - The GNU Image Manipulation Program
+- https://github.com/OneLoneCoder    - educational, fun & silly C/C++ Programmer, tutorials & community
 - https://commons.wikimedia.org/wiki/Category:SVG_chess_pieces
 
 Missing Features:
