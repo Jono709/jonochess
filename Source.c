@@ -62,7 +62,8 @@ struct mousePosition_s{
 
 	double x;
 	double y;
-	double offset = 0.0f; /* assume 0 if not updated */
+	double offsetX = 0.0f; /* assume 0 if not updated */
+	double offsetY = 0.0f;
 };
 
 struct windowResolution_s {
@@ -1900,15 +1901,42 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 
 void windowResize(GLFWwindow* window, int width, int height) {
 
-	long shift = (long)(width - height);
+	if (width > height) {
+
+		long shift = (long)(width - height);
 
 
-	mousePosition.offset = (double)(shift >> 1);
+		mousePosition.offsetY = 0.0f;
+		mousePosition.offsetX = (double)(shift >> 1);
 
-	glViewport((GLint)(shift >> 1), 0, height, height);
+		glViewport((GLint)(shift >> 1), 0, height, height);
 
-	windowResolution.x = (long)height;
-	windowResolution.y = (long)height;
+		windowResolution.x = (long)height;
+		windowResolution.y = (long)height;
+	}
+	else if (width < height) {
+
+		long shift = (long)(height - width);
+
+
+		mousePosition.offsetX = 0.0f;
+		mousePosition.offsetY = (double)(shift >> 1);
+
+		glViewport(0, (GLint)(shift >> 1), width, width);
+
+		windowResolution.x = (long)width;
+		windowResolution.y = (long)width;
+	}
+	else {
+
+		mousePosition.offsetX = 0.0f;
+		mousePosition.offsetY = 0.0f;
+		
+		glViewport(0, 0, width, height);
+
+		windowResolution.x = (long)width;
+		windowResolution.y = (long)height;
+	}
 }
 
 
@@ -2077,7 +2105,8 @@ int main(int argc, char* argv[]) {
 
 		/* Mouse */
 		glfwGetCursorPos(window, &mousePosition.x, &mousePosition.y);
-		mousePosition.x -= mousePosition.offset; // TLDR; glfw gives us screen coords but we need viewport coords see callbacks for more info
+		mousePosition.x -= mousePosition.offsetX; // TLDR; glfw gives us screen coords but we need viewport coords, see callbacks for more info
+		mousePosition.y -= mousePosition.offsetY;
 		mousePosition.x /= (windowResolution.x >> 1); mousePosition.y /= (windowResolution.y >> 1); mousePosition.x -= 1.0f; mousePosition.y -= 1.0f;
 
         /* Refresh Frame */
@@ -2115,12 +2144,12 @@ int main(int argc, char* argv[]) {
         glfwSwapBuffers(window);
         glfwPollEvents();
 
+        /* Timing */
+		timerEnd(&winTimer);
+
 		if (!movingPiece.exists) {
 			glfwWaitEvents();
 		}
-
-        /* Timing */
-		timerEnd(&winTimer);
     }
 
 	/* Cleanup */
