@@ -1,13 +1,13 @@
 # jonochess
 my first go at C
 
-Latest Changelog: 0.2.1b (11 Jan 2021)
-- first release
-- opengl rendering
-- full set of gamerules
-- promoting with keyboard ( q = queen, r = rook, n = knight, b = bishop )
-- flip the board with keyboard "f"
-- drag & drop style movement
+Latest Changelog: 0.2.2b (12 Jan 2021)
+- vertical screen support
+
+Keybinds:
+- left mousebutton drag & drop pieces
+- when promoting, pick a piece with ( q = queen, r = rook, n = knight, b = bishop )
+- f to flip screen
 
 Dependancies:
 - https://github.com/glfw/glfw       - opengl context creation and userinput API
@@ -31,4 +31,10 @@ Missing Features:
 - lacking ANSI C compability due to glm namespaces
 
 Previous Versions:
-- none!
+0.2.1b (11 Jan 2021)
+- first release
+- opengl rendering
+- full set of gamerules
+- promoting with keyboard ( q = queen, r = rook, n = knight, b = bishop )
+- flip the board with keyboard "f"
+- drag & drop style movement
